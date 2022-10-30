@@ -1,10 +1,23 @@
-import logo from "./logo.svg";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import AddUser from "./components/AddUser";
+import Home from "./components/Home";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home></Home>,
+    },
+    {
+      path: "/users/add",
+      element: <AddUser></AddUser>,
+    },
+  ]);
+
   return (
     <div className="App">
-      <h1>Client Project</h1>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
